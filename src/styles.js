@@ -39,6 +39,7 @@ export const Gray = styled.div`
 
 export const Button = styled(Link)`
    background: #182750;
+   text-decoration:none;
    padding: 1.4rem;
    border-radius: 2%;
    color: white;
@@ -52,7 +53,8 @@ export const Button = styled(Link)`
 
 export const Card = styled.div`
    background: #eceef3;
-   padding: 1.4rem;
+   padding: 1rem;
+   margin: 0.5rem;
    border-radius: 2%;
    width: 90%;
    height: auto;
