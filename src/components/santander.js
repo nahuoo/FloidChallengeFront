@@ -63,7 +63,7 @@ export const Santander = () => {
                                 <Label password>Contraseña</Label>
                                 <Input name="password" type="password" required onChange={e => setPassword(e.target.value)} />
                             </InputContainer>
-                            <Button onClick={handleclick} >{isLoading ? '...' : 'Continuar'}</Button>
+                            <Button onClick={handleclick} >{isLoading ? '...' : 'Continuar al sandBox'}</Button>
                         </>
                     }
 
