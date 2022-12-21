@@ -11,10 +11,16 @@ export const Santander = () => {
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
+    const formatoRut = (valor) => {
+        if (valor.match(/^\d{9}$/) !== null) {
+          return valor + '-';
+        }
+        return valor;
+      }
+
     const handleRutInput = (e) => {
         setValidRut(checkRut(e.target.value))
-        setRutInput(e.target.value)
-        console.log(validRut)
+        setRutInput(formatoRut(e.target.value))
     }
     const handleclick = async () => {
 
@@ -56,7 +62,7 @@ export const Santander = () => {
                         <>
                             <InputContainer>
                                 <Label rutInput>Ingresa tu RUT</Label>
-                                <Input name="rut" type="text" required onChange={handleRutInput} />
+                                <Input name="rut" type="text" required onChange={handleRutInput} value={rutInput} maxLength={11} />
                                 <p>{validRut}</p>
                             </InputContainer>
                             <InputContainer>
