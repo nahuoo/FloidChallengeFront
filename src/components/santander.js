@@ -41,18 +41,12 @@ export const Santander = () => {
         <Container santanderAccounts>
             {santanderAccounts.map((account, index) => {
                 return (
-                    
-                      
-                       
-                            <Card key={index}>
-                                <p>Tipo de cuenta: {account.type}</p>
-                                <p>Numero de cuenta: {account.number}</p>
-                                <p>Tipo de Moneda: {account.currency}</p>
-                                <p>Balance: {account.balance}</p>
-                            </Card>
-                           
-                       
-                    
+                    <Card key={index}>
+                        <p>Tipo de cuenta: {account.type}</p>
+                        <p>Numero de cuenta: {account.number}</p>
+                        <p>Tipo de Moneda: {account.currency}</p>
+                        <p>Balance: {account.balance}</p>
+                    </Card>
                 )
             })}
         </Container>
