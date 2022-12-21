@@ -33,39 +33,40 @@ export const Santander = () => {
             setSantanderAccounts(error);
             console.log(error)
         }
-
     }
 
-    if (santanderAccounts) return (
-
-        <Container santanderAccounts>
-            {santanderAccounts.map((account, index) => {
-                return (
-                    <Card key={index}>
-                        <p>Tipo de cuenta: {account.type}</p>
-                        <p>Numero de cuenta: {account.number}</p>
-                        <p>Tipo de Moneda: {account.currency}</p>
-                        <p>Balance: {account.balance}</p>
-                    </Card>
-                )
-            })}
-        </Container>
-    )
     return (
         <Wrapper isLoading={isLoading}>
             <WidgetContainer>
                 <Container>
+                    <Link to="/">Volver a inicio</Link>
                     <img src="https://admin.floid.app/widget/assets/logos/Santander.svg" height={40} alt="" />
-                    <InputContainer>
-                        <Label rutInput>Ingresa tu RUT</Label>
-                        <Input name="rut" type="text" required onChange={handleRutInput} />
-                        <p>{validRut}</p>
-                    </InputContainer>
-                    <InputContainer>
-                        <Label password>Contraseña</Label>
-                        <Input name="password" type="password" required onChange={e => setPassword(e.target.value)} />
-                    </InputContainer>
-                    <Button onClick={handleclick} >{isLoading ? '...' : 'Continuar'}</Button>
+                    {santanderAccounts.length > 0 &&
+                        santanderAccounts.map((account, index) => {
+                            return (
+                                <Card key={index}>
+                                    <p>Tipo de cuenta: {account.type}</p>
+                                    <p>Numero de cuenta: {account.number}</p>
+                                    <p>Tipo de Moneda: {account.currency}</p>
+                                    <p>Balance: {account.balance}</p>
+                                </Card>
+                            )
+                        })}
+                    {santanderAccounts.length === 0 &&
+                        <>
+                            <InputContainer>
+                                <Label rutInput>Ingresa tu RUT</Label>
+                                <Input name="rut" type="text" required onChange={handleRutInput} />
+                                <p>{validRut}</p>
+                            </InputContainer>
+                            <InputContainer>
+                                <Label password>Contraseña</Label>
+                                <Input name="password" type="password" required onChange={e => setPassword(e.target.value)} />
+                            </InputContainer>
+                            <Button onClick={handleclick} >{isLoading ? '...' : 'Continuar'}</Button>
+                        </>
+                    }
+
                     <img src="https://admin.floid.app/widget/assets/img/Logo_floid.svg" alt="" />
                 </Container>
             </WidgetContainer>
