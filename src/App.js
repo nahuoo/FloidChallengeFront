@@ -1,27 +1,14 @@
-import styled from "styled-components"
+import { Wrapper, WidgetContainer } from "./styles"
 import { Home } from "./components/home"
 
 function App() {
   return (
     <Wrapper>
-      <Container>
+      <WidgetContainer>
         <Home />
-      </Container>
+      </WidgetContainer>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fcf7f6;
-    height: 100vh;
-    width: 100vw;
-`
-const Container = styled.div `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
 export default App;
